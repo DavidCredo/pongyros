@@ -2,7 +2,7 @@ image: google/cloud-sdk:alpine
 
 deploy_production:
   stage: deploy
-  environment: Production
+  environment: production
   only:
   - main
   script:
