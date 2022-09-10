@@ -1,0 +1,34 @@
+{
+  "name": "pongyrosserver",
+  "version": "1.0.0",
+  "description": "Small Express app to handle multi session gameplay implementing WebSockets.",
+  "private": true,
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "startDev": "nodemon server.js",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "express",
+    "ws",
+    "websocket",
+    "multiplayer",
+    "game",
+    "gyro"
+  ],
+  "author": "pongyros team",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "socket.io": "^4.5.1",
+    "socket.io-client": "^4.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.9.2"
+  }
+}

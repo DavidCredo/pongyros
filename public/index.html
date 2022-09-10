@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <title>PONGYROS - das Spiel</title>
+    <meta charset="UTF-8">
+    <meta name="description"
+        content="Zwei mobile Endgeräte erschaffen ein gemeinsames Spielfeld für einen Ball und zwei Schläger.">
+    <meta name="keywords" content="spiel online spaß mobil gyroskop mehrspieler">
+    <meta name="author" content="D. Credo, J. König, L. J. Schmiede">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="main.css">
+    <script src="clientSocketConnection.js" type="module"></script>
+    <script src="requestRoom.js" type="module"></script>
+    <script src="app.js" type="module"></script>
+    <script src="dialog.js" defer></script>
+</head>
+
+<body>
+    <!-- 
+        Startseite: Erklärt dem Spieler, dass er sein Gerät zum Spielen wenden muss (überprüft, ob 'landscape') 
+        und bietet eine vierstelligen Session ID bzw. die Eingabe einer solchen, um sich mit einem Mitspieler zu verbinden. 
+        (Jene Session muss dann auf zwei Spieler begrenzt und der Code danach bestenfalls ungültig gemacht werden.)   
+        Das Modal sollte ebenfalls eine Datenschutzerklärung und ein Impressum enthalten. Dahingehend muss sichergestellt werden, 
+        dass das Modal auf jeden Fall jedem Besucher als erstes angezeigt wird.  
+    -->
+    <dialog id="welcomeDialog">
+        <div id="grid-container">
+            <article id="dialogContent">
+                <h1>PONGYROS - Das Spiel</h1>
+                <button id="requestPermission">Zugriff auf Gyroskop erlauben.</button>
+                <div id="connectToServer">
+                    <p>Type in a 4-digit code from your friend's session or create your own.</p>
+                    <input style="background-color: black; border: 1px solid white" type="text" id="session"
+                        name="session" pattern="[0-9]{4}" title="4 digit number: e.g. 1234" required>
+                    <input style="display: none;" id="websocket" value="" name="websocket">
+                    <button style="display: inline-block;" id="submit_button" type="submit">Join / Create a
+                        session</button>
+                    <div class="errormsg" style="display: none; color: red;">
+                        <p>The lobby you tried to access is already full. Please try another one.</p>
+                    </div>
+                </div>
+                <a href="#">Datenschutzerklärung</a>
+                <a href="#">Impressum</a>
+            </article>
+        </div>
+    </dialog>
+
+    <!-- Das darunterliegende Spielfeld -->
+    <div id="spielfeld">
+        <div id="punktestand"></div>
+        <span id="ballNest"></span>
+        <div id="schlaeger"></div>
+        <div id="torlinie"></div>
+    </div>
+</body>
+
+</html>

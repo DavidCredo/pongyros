@@ -1,0 +1,139 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 45px;
+    /* fallback */
+    font-size: calc(1vw + 1vh + 1.5vmin);
+    font-weight: 500;
+    color: white;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+html {
+    height: 100%;
+    position: fixed;
+}
+
+body {
+    overflow: hidden;
+    margin: 0;
+}
+
+p {
+    font-size: 1rem;
+}
+
+a {
+    font-size: 0.8rem;
+    color: lightgoldenrodyellow;
+}
+
+h1 {
+    font-size: 2.2rem;
+}
+
+dialog {
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    background-color: rgba(25, 25, 25, 0.7);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    /* funktioniert bei Firefox nur, wenn vom Nutzer konfiguriert. */
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+#spielfeld {
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background-color: black;
+}
+
+#punktestand {
+    text-align: right;
+    font-size: 1.5rem;
+    font-weight: 900;
+    padding-right: 1em;
+    padding-top: 0.5em;
+}
+
+#ball {
+    /* Variablen für Ball.js */
+    --diameter: 5;
+
+    height: calc(var(--diameter) * 1vw);
+    width: calc(var(--diameter) * 1vw);
+    background-color: rgb(255, 255, 255);
+    border-radius: 100%;
+    position: absolute;
+    left: calc(var(--xPosition) * 1vw);
+    top: calc(var(--yPosition) * 1vh);
+    z-index: 1;
+}
+
+#schlaeger {
+    /* Variablen für Schlaeger.js */
+    --xPosition: 40;
+    --yPosition: 100;
+    --width: 20;
+    --height: 6;
+
+    height: calc(var(--height) * 1vh);
+    width: calc(var(--width) * 1vw);
+    background-color: white;
+    position: absolute;
+    left: calc(var(--xPosition) * 1vw);
+    bottom: 0;
+    z-index: 1;
+}
+
+#torlinie {
+    display: none;
+    background-color: coral;
+    width: 100vw;
+    height: 1vh;
+    position: absolute;
+    bottom: 0;
+}
+
+#grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    column-gap: 1vw;
+    row-gap: 1vh;
+    justify-items: center;
+    align-items: center;
+    margin: 3%;
+}
+
+#dialogContent {
+    text-align: center;
+    grid-column: 1/4;
+    grid-row: 1;
+}
+
+button {
+    display: block;
+    border: none;
+    background-color: black;
+    border-radius: 0.3em;
+    padding: 0.5em;
+    font-size: 0.8rem;
+    margin: 2vw auto;
+}
+
+button:hover,
+button:focus {
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+}
+
+#connectToServer,
+#requestPermission {
+    display: none;
+}
