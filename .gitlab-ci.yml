@@ -4,7 +4,7 @@ deploy_production:
   stage: deploy
   environment: Production
   only:
-  - experimental
+  - main
   script:
   - echo $SERVICE_ACCOUNT > /tmp/$CI_PIPELINE_ID.json
   - gcloud auth activate-service-account --key-file /tmp/$CI_PIPELINE_ID.json
