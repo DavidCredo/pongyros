@@ -1,6 +1,6 @@
 # PONGYROS
 
-Web Anwendung 2022; Zwei mobile Endgeräte erschaffen ein gemeinsames Spielfeld für einen Ball und zwei Schläger. 
+Zwei mobile Endgeräte erschaffen ein gemeinsames Spielfeld für einen Ball und zwei Schläger. 
 
 ## Wie funktioniert das?
 Finde einen Spielpartner. Ihr braucht beide ein Endgerät mit Gyroskop-Sensor und Touch-Input.
@@ -10,18 +10,3 @@ Der andere tritt diesem über den selben Code bei.
 Haltet eure Endgeräte aneinander, zusammen bilden sie das gesamte Spielfeld.
 Der Raumersteller wird nun einen Ball sehen und kann diesen mit dem Finge in eine belibeige Richtung wischen.
 Über Bewgung des Endgerätes könnt ihr euren Schläger steuern und den Ball des Gegners parieren.
-
-## Verteilung der Aufgaben
-- Zielgerät 
-    - Mobil **Jona**
-- Steuerung
-    - Geste (Swipe) **Jamila**
-    - Gyroskop **Jona**
-- Spielzüge
-    - Echtzeit **David**
-- Darstellung der Spielobjekte und ggf. Kollision
-    - Pixelgenau **David**
-- Multiplayer
-    - Netzwerk **Jona und David**
-- Level mit Schwierigkeitsgrad
-    - über Parameter zuällig generiert **Jamila**
