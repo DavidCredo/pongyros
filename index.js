@@ -3,7 +3,7 @@ import * as http from "http";
 import { Server } from "socket.io";
 import { localIO, localApp, httpsServer } from "./local-development/localServer.js";
 
-let environment = process.env.NODE_ENV || 'development';
+let environment = process.env.NODE_ENV || 'development'; // TODO: Das kann so noch nicht funktionieren -> Issue#10
 let io = null;
 let app = null;
 let port = parseInt(process.env.PORT) || 8080;
