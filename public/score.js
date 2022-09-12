@@ -1,6 +1,6 @@
 import { socket } from "./clientSocketConnection.js";
 import { session, websocket } from "./requestRoom.js";
-import level from "./level.js";
+// import level from "./level.js";
 
 let scoreBoard = document.getElementById("punktestand");
 let ownScore = 0;
@@ -16,9 +16,9 @@ socket.on("updateScore", (obj) => {
         opponentScore = obj.opponentScore;
         scoreBoard.innerText = `${ownScore} : ${opponentScore}`;
     }
-    if (ownScore == 5 || opponentScore == 5) {  // set new level parameters at specific score
-        level();
-    }
+    // if (ownScore == 5 || opponentScore == 5) {  // set new level parameters at specific score
+    //     level();
+    // }
 });
 
 export default function updateScore() {

@@ -86,21 +86,21 @@ io.on("connection", (socket) => {
     io.to(obj.session).emit("updateScore", info);
   });
 
-  // initializes schlaegerWidth for all clients
-  socket.emit("setLevel", 20);
+  // // initializes schlaegerWidth for all clients
+  // socket.emit("setLevel", 20);
 
-  // synchs schlaegerWidth after a goal
-  socket.on("levelUp", (obj) => {
-    io.to(obj.session).emit("setLevel", obj.schlaegerWidth);
-  });
+  // // synchs schlaegerWidth after a goal
+  // socket.on("levelUp", (obj) => {
+  //   io.to(obj.session).emit("setLevel", obj.schlaegerWidth);
+  // });
 
-  // initializes backgroundcolor for all clients
-  socket.emit("setLevelColor", "rgb(" + 0 + "," + 0 + "," + 0 + ")");
+  // // initializes backgroundcolor for all clients
+  // socket.emit("setLevelColor", "rgb(" + 0 + "," + 0 + "," + 0 + ")");
 
-  // synchs backgroundcolor after a goal
-  socket.on("changeColor", (obj) => {
-    io.to(obj.session).emit("setLevelColor", obj.rgb);
-  });
+  // // synchs backgroundcolor after a goal
+  // socket.on("changeColor", (obj) => {
+  //   io.to(obj.session).emit("setLevelColor", obj.rgb);
+  // });
 
   // handles requests from clients that want to join a room
   socket.on("wannajoin", (obj) => {
