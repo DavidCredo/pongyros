@@ -70,7 +70,7 @@ export default class Ball {
       this.handleGoal();
     } else if (this.yPosition <= 1) {
       // for testing
-      //this.velocity.y *= -1;
+      // this.velocity.y *= -1;
       let ballData = {
         x: this.xPosition,
         y: this.yPosition,
@@ -99,7 +99,7 @@ export default class Ball {
     // Alle Angaben sind relativ und werden zur Berechnung der Kollision in absolute Pixel-Werte umgerechnet.
     let ballX = this.xPosition * inVW;
     let ballY = this.yPosition * inVH;
-    let ballR = this.ballWidth * inVW;
+    let ballW = this.ballWidth * inVW;
     let schlaegerX = schlaeger.position * inVW;
     let schlaegerY = window.innerHeight - schlaeger.height * inVH;
     let schlaegerW = 0.75 * schlaeger.width * inVW;
@@ -111,25 +111,11 @@ export default class Ball {
     const circleDistanceX = ballX - testX;
     const circleDistanceY = ballY - schlaegerY;
     const distance = Math.sqrt((circleDistanceX * circleDistanceX) + (circleDistanceY * circleDistanceY))
-    return distance <= ballR;
+    return distance <= ballW;
   }
 
   resolveCollision() {
-    // Alle Angaben sind relativ und werden zur Berechnung der Kollision in absolute Pixel-Werte umgerechnet.
-    let ballX = this.xPosition * inVW;
-    let ballY = this.yPosition * inVH;
-    let ballR = this.ballWidth * inVW;
-    let schlaegerX = schlaeger.position * inVW;
-    let schlaegerY = window.innerHeight - schlaeger.height * inVH;
-    // Schläger Geschwindigkeit wird von Ball Geschwindigkeit komponentenweise subtrahiert => Richtung des Kollisionsvektors
-    let collisionVector = { x: ballX, y: ballY + ballR };
-    // Distanz des Kollisionsvektors errechnet durch Betragsformel für Vektoren
-    let collisionDistance = Math.sqrt((schlaegerX - ballX) * (schlaegerX - ballX) + (schlaegerY - ballY) * (schlaegerY - ballY))
-    // Kollisionsvektor wird normalisiert um im nächsten Schritt geeignete Werte 
-    const collisionNormal = { x: collisionVector.x / collisionDistance, y: collisionVector.y / collisionDistance }
-
-    this.velocity.x -= collisionNormal.x;
-    this.velocity.y -= collisionNormal.y;
+    this.velocity.y -= 2;
   }
 
   handleGoal() {
