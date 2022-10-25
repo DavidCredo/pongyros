@@ -23,9 +23,11 @@ p {
     font-size: 1rem;
 }
 
-a {
+a, a:focus, a:focus-visible, a:hover, a:visited, a:active, a:target {
     font-size: 0.8rem;
     color: lightgoldenrodyellow;
+    text-decoration: none;
+    outline: none;
 }
 
 h1 {
